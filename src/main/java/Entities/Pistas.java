@@ -6,54 +6,50 @@
 package Entities;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author james
  */
 @Entity
+@Table (name="pistas")
 public class Pistas implements Serializable {
-
-    private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name="pista")
+    private String pista;
+    @Column (name="numeroPista")
+    private int numeroPista;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    
+    public String getPista() {
+        return pista;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Pistas)) {
-            return false;
-        }
-        Pistas other = (Pistas) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public void setPista(String pista) {
+        this.pista = pista;
     }
 
-    @Override
-    public String toString() {
-        return "Entities.Pistas[ id=" + id + " ]";
+    public int getNumeroPista() {
+        return numeroPista;
+    }
+
+    public void setNumeroPista(int numeroPista) {
+        this.numeroPista = numeroPista;
     }
     
 }

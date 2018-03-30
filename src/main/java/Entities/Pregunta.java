@@ -6,54 +6,81 @@
 package Entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author james
  */
 @Entity
-public class Pregunta implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+@Table (name="pregunta")
+public class Pregunta implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column (name="numero")
+    private int numero;
+    @Column (name="verificada")
+    private boolean verificada;
+    @Column (name="listaRespuestas")
+    private ArrayList<Respuesta> listaRespuestas;
+    @Column (name="listaPistas")
+    private ArrayList<Pistas> listaPistas;
+    @Column (name="dificultad")
+    private int dificultad;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    
+    public int getNumero() {
+        return numero;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Pregunta)) {
-            return false;
-        }
-        Pregunta other = (Pregunta) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
-    @Override
-    public String toString() {
-        return "Entities.Pregunta[ id=" + id + " ]";
+    public boolean isVerificada() {
+        return verificada;
+    }
+
+    public void setVerificada(boolean verificada) {
+        this.verificada = verificada;
+    }
+
+    public ArrayList<Respuesta> getListaRespuestas() {
+        return listaRespuestas;
+    }
+
+    public void setListaRespuestas(ArrayList<Respuesta> listaRespuestas) {
+        this.listaRespuestas = listaRespuestas;
+    }
+
+    public ArrayList<Pistas> getListaPistas() {
+        return listaPistas;
+    }
+
+    public void setListaPistas(ArrayList<Pistas> listaPistas) {
+        this.listaPistas = listaPistas;
+    }
+
+    public int getDificultad() {
+        return dificultad;
+    }
+
+    public void setDificultad(int dificultad) {
+        this.dificultad = dificultad;
     }
     
 }

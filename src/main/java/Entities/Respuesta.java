@@ -6,54 +6,43 @@
 package Entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author james
  */
 @Entity
-public class Respuesta implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+@Table (name="respuesta")
+public class Respuesta implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column (name="resCorrecta")
+    private String resCorrecta;
+    @Column (name="resIncorrectas")
+    private ArrayList<String> resIncorrectas;
 
-    public Long getId() {
-        return id;
+    public String getResCorrecta() {
+        return resCorrecta;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setResCorrecta(String resCorrecta) {
+        this.resCorrecta = resCorrecta;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+    public ArrayList<String> getResIncorrectas() {
+        return resIncorrectas;
     }
 
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Respuesta)) {
-            return false;
-        }
-        Respuesta other = (Respuesta) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Entities.Respuesta[ id=" + id + " ]";
+    public void setResIncorrectas(ArrayList<String> resIncorrectas) {
+        this.resIncorrectas = resIncorrectas;
     }
     
 }

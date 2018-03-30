@@ -2,7 +2,14 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="catalogPU" transaction-type="JTA">
     <jta-data-source>app/jdbc/petcatalog</jta-data-source>
-<!--    <jta-data-source>java:/petcatalog</jta-data-source>-->
+    <!--    <jta-data-source>java:/petcatalog</jta-data-source>-->
+    <class>Entities.Examinador</class>
+    <class>Entities.Pistas</class>
+    <class>Entities.Pregunta</class>
+    <class>Entities.Quiz</class>
+    <class>Entities.Respuesta</class>
+    <class>Entities.Tutor</class>
+    <class>Entities.Usuario</class>
     <properties/>
   </persistence-unit>
 </persistence>

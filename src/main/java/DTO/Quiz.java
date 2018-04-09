@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author james
  */
 public class Quiz {
+    
     private ArrayList<Pregunta> listaPreguntas;
 
     public Quiz(ArrayList<Pregunta> listaPreguntas) {
